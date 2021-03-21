@@ -7,7 +7,9 @@ function App() {
 
   useEffect(() => {
     if (searchTerm) {
-      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=a3e71b30`)
+      fetch(
+        `http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=a3e71b30`
+      )
         .then((result) => {
           return result.json();
         })
@@ -32,7 +34,13 @@ function App() {
         id="movie-search"
       />
       {movies.map((movie) => {
-        return <div>{movie}</div>;
+        console.log(movie);
+        return (
+          <div>
+            {movie.Title}
+            <img alt="moviePoster" src={movie.Poster} />
+          </div>
+        );
       })}
     </div>
   );
