@@ -1,30 +1,21 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 
-const sampleMovieList = [
-  "The Matrix",
-  "The Avengers",
-  "Spider-Man: Homecoming",
-  "Onward",
-  "Fast & Furious Presents: Hobbs & Shaw",
-  "The Lovebirds",
-  "Wonder Woman",
-  "Gladiator",
-  "The Lord of the Rings: The Fellowship of the Ring",
-  "Aladdin",
-];
-
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    console.log("useEffect running");
-    setMovies(
-      sampleMovieList.filter((movie) =>
-        movie.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+    if (searchTerm) {
+      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=a3e71b30`)
+        .then((result) => {
+          return result.json();
+        })
+        .then((movies) => {
+          debugger;
+          setMovies(movies);
+        });
+    }
   }, [searchTerm]);
 
   return (
