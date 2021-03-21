@@ -13,7 +13,7 @@
 .env.production.local
 env/
 .flaskenv
-__pycache__
+*__pycache__
 .vscode
 
 npm-debug.log*
