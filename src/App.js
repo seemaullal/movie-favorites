@@ -12,8 +12,9 @@ function App() {
           return result.json();
         })
         .then((movies) => {
-          debugger;
-          setMovies(movies);
+          if (movies.Search) {
+            setMovies(movies.Search);
+          }
         });
     }
   }, [searchTerm]);
