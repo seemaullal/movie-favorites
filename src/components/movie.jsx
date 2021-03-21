@@ -1,8 +1,8 @@
 export default function Movie({ title, posterUrl }) {
   return (
     <div>
-      {title}
       <img alt="moviePoster" src={posterUrl} />
+      <p>{title}</p>
     </div>
   );
 }
