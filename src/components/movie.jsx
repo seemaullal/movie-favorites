@@ -29,12 +29,14 @@ export default function Movie({ title, posterUrl }) {
           }}
         >
           <p style={{ justifySelf: "center" }}>{title}</p>
-          <button
-            onClick={() => console.log("favorited!")}
-            className="favorite-button"
-          >
-            ❤️
-          </button>
+          <div class="wrapper">
+            <input
+              type="checkbox"
+              class="favorite-checkbox"
+              id="favorite-checkbox"
+            />
+            <label class="favorite" htmlFor="favorite-checkbox" />
+          </div>
         </div>
       </div>
     </div>
