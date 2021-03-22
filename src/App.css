@@ -31,47 +31,11 @@
   grid-column-start: 1;
 }
 
-.favorite {
-  color: transparent;
-  border: black;
-  background-color: currentColor;
-  display: inline-block;
-  height: 50px;
-  margin: 0 10px;
-  position: relative;
-  top: 0;
-  transform: rotate(-45deg);
-  position: absolute;
-  left: 45%;
-  top: 45%;
-  width: 50px;
-}
-
-.favorite-checkbox {
-  display: none;
-}
-
-.favorite::before,
-.favorite::after {
-  content: "";
-  background-color: currentColor;
-  border-radius: 50%;
-  height: 50px;
-  position: absolute;
-  width: 50px;
-}
-
-.favorite:before {
-  top: -25px;
-  left: 0;
-}
-
-.favorite:after {
-  left: 25px;
-  top: 0;
-}
-
-.favorite-checkbox:checked + .favorite {
-  color: red;
+.favorite-button {
+  grid-column-start: 2;
+  margin-left: 10px;
   border: none;
+  background: transparent;
+  cursor: pointer;
+  justify-self: center;
 }

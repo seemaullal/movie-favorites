@@ -1,4 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+
 export default function Movie({ title, posterUrl }) {
+  const [favorited, setFavorited] = useState(false);
   return (
     <div
       style={{
@@ -29,14 +34,27 @@ export default function Movie({ title, posterUrl }) {
           }}
         >
           <p style={{ justifySelf: "center" }}>{title}</p>
-          <div class="wrapper">
-            <input
-              type="checkbox"
-              class="favorite-checkbox"
-              id="favorite-checkbox"
+          <button
+            onClick={() => {
+              setFavorited((isFavorited) => !isFavorited);
+              console.log("favorited!");
+            }}
+            className="favorite-button"
+          >
+            <FontAwesomeIcon
+              style={
+                favorited
+                  ? { color: "red", border: "none" }
+                  : {
+                      color: "transparent",
+                      stroke: "black",
+                      strokeWidth: "25px",
+                    }
+              }
+              icon={faHeart}
             />
-            <label class="favorite" htmlFor="favorite-checkbox" />
-          </div>
+            {"    Favorite"}
+          </button>
         </div>
       </div>
     </div>
