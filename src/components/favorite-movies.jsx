@@ -9,7 +9,7 @@ export default function FavoriteMovies() {
     if (searchTerm) {
       // In the future, handle pagination.
       fetch(
-        `http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=a3e71b30`
+        `https://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=a3e71b30`
       )
         .then((result) => {
           return result.json();
