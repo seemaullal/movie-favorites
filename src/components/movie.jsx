@@ -1,9 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Movie({ title, posterUrl }) {
   const [favorited, setFavorited] = useState(false);
+
+  useEffect(() => {
+    setFavorited(false)
+  }, [title, posterUrl]) // props often are in this array
+  // just cause you change the props doesn't mean the component gets unmounted and remounted
+
   return (
     <div
       style={{
