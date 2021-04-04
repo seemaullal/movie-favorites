@@ -16,7 +16,7 @@ You do not need to persist the favorite movies in a database and can instead sto
 We'd like a user interface that makes it easy to:
 
 - [x] Search the movie database and display the results (movies only)
-- [ ] Add a movie from the search results to their favorites list
+- [x] Add a movie from the search results to their favorites list
 - [ ] View the list of up to 10 films already favorited
 - [ ] Remove a favorite movie from the list
 

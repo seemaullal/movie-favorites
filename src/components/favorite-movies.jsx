@@ -21,7 +21,7 @@ export default function FavoriteMovies() {
         });
     }
   }, [searchTerm]);
-
+  
   return (
     <div className="App">
       <h2>Movie favorites</h2>
@@ -34,8 +34,8 @@ export default function FavoriteMovies() {
         onChange={(event) => setSearchTerm(event.currentTarget.value)}
         id="movie-search"
       />
-      {movies.map((movie) => (
-        <Movie title={movie.Title} posterUrl={movie.Poster} />
+      {movies.map(({imdbID, Title, Poster}) => (
+        <Movie key={imdbID} title={Title} posterUrl={Poster} movieId={imdbID}/>
       ))}
     </div>
   );

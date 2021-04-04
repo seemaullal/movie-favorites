@@ -2,12 +2,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
-export default function Movie({ title, posterUrl }) {
+export default function Movie({ title, posterUrl, movieId }) {
   const [favorited, setFavorited] = useState(false);
 
   useEffect(() => {
-    setFavorited(false)
-  }, [title, posterUrl]) // props often are in this array
+    const currentFavorites = JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? []
+    // ?? is nullish coalescing
+    setFavorited(currentFavorites.includes(movieId))
+  }, [movieId]) // props often are in this array
   // just cause you change the props doesn't mean the component gets unmounted and remounted
 
   return (
@@ -43,6 +45,12 @@ export default function Movie({ title, posterUrl }) {
           <button
             onClick={() => {
               setFavorited((isFavorited) => !isFavorited);
+              // localStorage -- favoritedMovies: [id1, 2, etd]
+              const currentFavorites = JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? []
+              if ( currentFavorites.length < 10) {
+                window.localStorage.setItem("favoritedMovies", JSON.stringify([...currentFavorites, movieId]))
+                // ... (the spread operator) is like list slicing 
+              }
               console.log("favorited!");
             }}
             className="favorite-button"
