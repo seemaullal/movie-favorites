@@ -12,6 +12,16 @@ export default function Movie({ title, posterUrl, movieId }) {
   }, [movieId]) // props often are in this array
   // just cause you change the props doesn't mean the component gets unmounted and remounted
 
+  useEffect(() => {
+    let currentFavorites = JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? []
+    if (favorited) {
+      currentFavorites = [...currentFavorites, movieId]
+    } else {
+      currentFavorites = currentFavorites.filter(favoriteId => movieId != favoriteId)
+    }
+    window.localStorage.setItem("favoritedMovies", JSON.stringify(currentFavorites))
+  }, [favorited])
+
   return (
     <div
       style={{
@@ -43,15 +53,9 @@ export default function Movie({ title, posterUrl, movieId }) {
         >
           <p style={{ justifySelf: "center" }}>{title}</p>
           <button
+          // disable if there are 10 favorites 
             onClick={() => {
-              setFavorited((isFavorited) => !isFavorited);
-              // localStorage -- favoritedMovies: [id1, 2, etd]
-              const currentFavorites = JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? []
-              if ( currentFavorites.length < 10) {
-                window.localStorage.setItem("favoritedMovies", JSON.stringify([...currentFavorites, movieId]))
-                // ... (the spread operator) is like list slicing 
-              }
-              console.log("favorited!");
+              setFavorited(isFavorited => !isFavorited);
             }}
             className="favorite-button"
           >

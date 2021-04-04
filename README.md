@@ -18,16 +18,16 @@ We'd like a user interface that makes it easy to:
 - [x] Search the movie database and display the results (movies only)
 - [x] Add a movie from the search results to their favorites list
 - [ ] View the list of up to 10 films already favorited
-- [ ] Remove a favorite movie from the list
+- [x] Remove a favorite movie from the list
 
 Requirements
 
-- [ ] Search results should come from an online database for movie information (OMDB's API is a good option but you can use another API if you prefer)
-- [ ] Each search result should list at least its title, year of release and a button to favorite that film.
-- [ ] Updates to the search terms should update the result list
-- [ ] Ideally this would happen without a full page reload
-- [ ] Movies in search results can be added and removed from the favorites list.
-- [ ] If a search result has already been favorited, display this and disallow adding it as a favorite again
+- [x] Search results should come from an online database for movie information (OMDB's API is a good option but you can use another API if you prefer)
+- [x] Each search result should list at least its title, year of release and a button to favorite that film.
+- [x] Updates to the search terms should update the result list
+- [x] Ideally this would happen without a full page reload
+- [x] Movies in search results can be added and removed from the favorites list.
+- [x] If a search result has already been favorited, display this and disallow adding it as a favorite again
 - [ ] Display some kind of banner/notification when users have favorited 10 movies letting them know they cannot add a new one until they remove one. This banner should be hidden if they remove a favorite and then have less than 10 selected.
 
 [Optional but recommended]
