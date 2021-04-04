@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
-export default function Movie({ title, posterUrl, movieId }) {
+export default function Movie({ title, posterUrl, movieId, disableFavoriting }) {
   const [favorited, setFavorited] = useState(false);
 
   useEffect(() => {
@@ -17,10 +17,10 @@ export default function Movie({ title, posterUrl, movieId }) {
     if (favorited) {
       currentFavorites = [...currentFavorites, movieId]
     } else {
-      currentFavorites = currentFavorites.filter(favoriteId => movieId != favoriteId)
+      currentFavorites = currentFavorites.filter(favoriteId => movieId !== favoriteId)
     }
     window.localStorage.setItem("favoritedMovies", JSON.stringify(currentFavorites))
-  }, [favorited])
+  }, [favorited, movieId])
 
   return (
     <div
@@ -53,7 +53,7 @@ export default function Movie({ title, posterUrl, movieId }) {
         >
           <p style={{ justifySelf: "center" }}>{title}</p>
           <button
-          // disable if there are 10 favorites 
+            disabled={disableFavoriting}
             onClick={() => {
               setFavorited(isFavorited => !isFavorited);
             }}

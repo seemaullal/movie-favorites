@@ -4,6 +4,13 @@ import Movie from "./movie";
 export default function FavoriteMovies() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentFavorites, setCurrentFavorites] = useState([])
+  
+  const currentFavoritesAsString = JSON.stringify(currentFavorites)
+
+  useEffect(() => {
+    setCurrentFavorites(JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? [])
+  }, [currentFavoritesAsString])
 
   useEffect(() => {
     if (searchTerm) {
@@ -25,6 +32,7 @@ export default function FavoriteMovies() {
   return (
     <div className="App">
       <h2>Movie favorites</h2>
+      {currentFavorites.length >= 10 && <h3>You have already favorited 10 movies. You can't favorite anymore :(</h3>}
       <p>Search for movies and select your favorites!</p>
       <label htmlFor="movie-search" className="margin-right-10">
         Search for a movie
@@ -35,7 +43,7 @@ export default function FavoriteMovies() {
         id="movie-search"
       />
       {movies.map(({imdbID, Title, Poster}) => (
-        <Movie key={imdbID} title={Title} posterUrl={Poster} movieId={imdbID}/>
+        <Movie key={imdbID} title={Title} posterUrl={Poster} movieId={imdbID} disableFavoriting={currentFavorites.length >= 10}/>
       ))}
     </div>
   );
