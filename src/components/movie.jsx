@@ -1,26 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
 
-export default function Movie({ title, posterUrl, movieId, disableFavoriting }) {
-  const [favorited, setFavorited] = useState(false);
-
-  useEffect(() => {
-    const currentFavorites = JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? []
-    // ?? is nullish coalescing
-    setFavorited(currentFavorites.includes(movieId))
-  }, [movieId]) // props often are in this array
-  // just cause you change the props doesn't mean the component gets unmounted and remounted
-
-  useEffect(() => {
-    let currentFavorites = JSON.parse(window.localStorage.getItem("favoritedMovies")) ?? []
-    if (favorited) {
-      currentFavorites = [...currentFavorites, movieId]
-    } else {
-      currentFavorites = currentFavorites.filter(favoriteId => movieId !== favoriteId)
-    }
-    window.localStorage.setItem("favoritedMovies", JSON.stringify(currentFavorites))
-  }, [favorited, movieId])
+export default function Movie({
+  title,
+  posterUrl,
+  movieId,
+  disableFavoriting,
+  setWhatever,
+  addFavoriteMovie,
+  favorited
+}) {
 
   return (
     <div
@@ -47,16 +36,14 @@ export default function Movie({ title, posterUrl, movieId, disableFavoriting }) 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1 fr 1fr 1fr",
+            gridTemplateColumns: "1fr 1fr 1fr",
             gridTemplateRows: "auto",
           }}
         >
           <p style={{ justifySelf: "center" }}>{title}</p>
           <button
             disabled={disableFavoriting}
-            onClick={() => {
-              setFavorited(isFavorited => !isFavorited);
-            }}
+            onClick={() => addFavoriteMovie(movieId)}
             className="favorite-button"
           >
             <FontAwesomeIcon
