@@ -46,9 +46,9 @@ export default function FavoriteMovies() {
   return (
     <div className="App">
       <h2>Movie favorites</h2>
-      {currentFavorites.length >= 10 && (
+      {currentFavorites.length >= 5 && (
         <h3>
-          You have already favorited 10 movies. You can't favorite anymore :(
+          You have already favorited 5 movies. You can't favorite anymore :(
         </h3>
       )}
       <p>Search for movies and select your favorites!</p>
