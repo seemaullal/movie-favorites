@@ -38,11 +38,13 @@ Requirements
 - [ ] This would likely require you to add a backend to your application if you did not do so initially
 
 Extras
-Beyond what is described above, you can add additional features if there are things you think would be valuable. For example, perhaps you autocomplete the movie names when a person is searching or allow users to ‘follow’ other users and then easily access the favorites of those people. Feel free to also improve the user interface and design, for example adding nicer transitions and animations. You can also add tests to help you avoid regressions.
+
+Beyond what is described above, you can add additional features if there are things you think would be valuable.
+For example, perhaps you autocomplete the movie names when a person is searching or allow users to ‘follow’ other users and then easily access the favorites of those people. Feel free to also improve the user interface and design, for example adding nicer transitions and animations. You can also add tests to help you avoid regressions.
 
 Submission
 
  - Please submit the following by emailing your Hackbright education team. You can send the Github link and include the other information there in the README.
-  - A link to your deployed code so we can test it (A few free hosting options: Heroku, Github pages, Netlify)
-  - A link to your Github repository containing the code
-  - Any other notes you'd like us to consider including design decisions you made, a feature list, usability instructions, etc.
+     - A link to your deployed code so we can test it (A few free hosting options: Heroku, Github pages, Netlify)
+     - A link to your Github repository containing the code
+     - Any other notes you'd like us to consider including design decisions you made, a feature list, usability instructions, etc.
