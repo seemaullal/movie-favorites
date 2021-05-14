@@ -1,5 +1,3 @@
-This is becoming increasingly informative and amazing.
-
 https://movie-favorites.herokuapp.com/
 
 https://docs.google.com/document/d/1ZsagXrhmPSKSknKL1cMLDZql0xp73zwWlElXD-nGI68/edit
@@ -9,7 +7,7 @@ The goal is to build an application that will allow people to search movies, see
 As an extension, you can also allow people to see the favorites of other users.
 The Challenge
 
-We need a webpage that can search for movies, and allow the user to save their favourite films. You should limit the number of favorite films to 5 – after this, they can only add a new favorite after removing one that already exists.
+We need a webpage that can search for movies, and allow the user to save their favorite films. You should limit the number of favorite films to 5 – after this, they can only add a new favorite after removing one that already exists.
 
 You do not need to persist the favorite movies in a database and can instead store the information in the browser. However if a user refreshes the page, they should be able to see their previously selected favorites (assuming they do not clear the browser history/storage).
 
@@ -44,7 +42,7 @@ For example, perhaps you autocomplete the movie names when a person is searching
 
 Submission
 
- - Please submit the following by emailing your Hackbright education team. You can send the Github link and include the other information there in the README.
+ - Please submit the following by emailing your the education team. You can send the Github link and include the other information there in the README.
      - A link to your deployed code so we can test it (A few free hosting options: Heroku, Github pages, Netlify)
      - A link to your Github repository containing the code
      - Any other notes you'd like us to consider including design decisions you made, a feature list, usability instructions, etc.
