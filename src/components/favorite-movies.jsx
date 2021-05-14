@@ -5,7 +5,6 @@ export default function FavoriteMovies() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentFavorites, setCurrentFavorites] = useState([]);
-  console.log({ currentFavorites });
   function addFavoriteMovie(movieId) {
     setCurrentFavorites((favorites) => [...favorites, movieId]);
   }
@@ -14,7 +13,6 @@ export default function FavoriteMovies() {
     setCurrentFavorites(
       JSON.parse(window.localStorage.getItem("favoritedMovies"))
     );
-    debugger;
   }, []);
 
   useEffect(() => {
