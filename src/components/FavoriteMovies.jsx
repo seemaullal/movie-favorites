@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Movie from "./movie";
+import Movie from "./Movie";
 
 export default function FavoriteMovies() {
   const [movies, setMovies] = useState([]);
@@ -10,9 +10,12 @@ export default function FavoriteMovies() {
   }
 
   useEffect(() => {
-    setCurrentFavorites(
-      JSON.parse(window.localStorage.getItem("favoritedMovies"))
+    const favoritesFromLocalStorage = JSON.parse(
+      window.localStorage.getItem("favoritedMovies")
     );
+    if (favoritesFromLocalStorage) {
+      setCurrentFavorites(favoritesFromLocalStorage);
+    }
   }, []);
 
   useEffect(() => {

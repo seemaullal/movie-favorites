@@ -1,5 +1,5 @@
 import "./App.css";
-import FavoriteMovies from "./components/favorite-movies";
+import FavoriteMovies from "./components/FavoriteMovies";
 
 function App() {
   return <FavoriteMovies />;
