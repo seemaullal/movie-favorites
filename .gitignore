@@ -5,8 +5,6 @@ package-lock.json
 
 /coverage
 
-/build
-
 .DS_Store
 .env.local
 .env.development.local
