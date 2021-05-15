@@ -39,3 +39,20 @@
   cursor: pointer;
   justify-self: center;
 }
+
+.nav {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  height: 40px;
+  width: 100%;
+  display: flex;
+}
+
+.nav li {
+  text-align: center;
+  flex: 1;
+  list-style-type: none;
+  padding: 10px;
+}
